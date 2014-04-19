@@ -6,52 +6,48 @@
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-    </head>
-    <body>
-		<script>
-			alert("ido");
-			navigator.camera.getPicture(onPhotoUriSuccess, onFailCamera, { quality: 50,
-			destinationType: pictDestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY  });
-			
-			function onPhotoUriSuccess(imageUriToUpload) {
-			alert("ido2");
-				var url=encodeURI("http://avivshay.milab.idc.ac.il/cmd=UITS");
+<script type="text/javascript">  
+function uploadFromGallery() {
+alert("D");
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(uploadPhoto,
+                                function(message) { alert('get picture failed'); },
+                                { quality: 50, 
+                                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                );
 
-				var username='your_user';
-				var password='your_pwd';
+}
 
-				var params = new Object();
-				params.your_param_name = "something";  //you can send additional info with the file
+function uploadPhoto(imageURI) {
+    var options = new FileUploadOptions();
+    options.fileKey="file";
+    options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1)+'.png';
+    options.mimeType="text/plain";
 
-				var options = new FileUploadOptions();
-				//options.fileKey = "the_name_of_the_image_field"; //depends on the api
-				options.fileName = imageUriToUpload.substr(imageUriToUpload.lastIndexOf('/')+1);
-				//options.mimeType = "image/jpeg";
-				//options.params = params;
-				options.chunkedMode = true; //this is important to send both data and files
+    var params = new Object();
 
-				//var headers={'Authorization':"Basic " + Base64.encode(username + ":" + password)};
-				//options.headers = headers;
+    options.params = params;
 
-				var ft = new FileTransfer();
-				ft.upload(imageUriToUpload, url, succesFileTransfer, errorFileTransfer, options);
+    var ft = new FileTransfer();
+    ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+}
 
-		}
-		function onPhotoUriSuccess() {
-			alert("o");
-		}
-		function imageUriToUpload() {
-			alert("i");
-		}
-		function succesFileTransfer() {
-			alert("s");
-		} 
-		function errorFileTransfer() {
-			alert("e");
-		}
-		
-		</script>
-		
-		
-    </body>
+function win(r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+
+function fail(error) {
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
+</script>
+</head>
+<body>
+   <a data-role="button" onClick="alert('R');uploadFromGallery();">Upload from Gallery</a> 
+</body>
+
 </html>
