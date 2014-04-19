@@ -7,42 +7,61 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 <script type="text/javascript">  
-function uploadFromGallery() {
-alert("D");
-    // Retrieve image file location from specified source
-    navigator.camera.getPicture(uploadPhoto,
-                                function(message) { alert('get picture failed'); },
-                                { quality: 50, 
-                                destinationType: navigator.camera.DestinationType.FILE_URI,
-                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
-                                );
+//Camera Section
+// Wait for PhoneGap to load
+document.addEventListener("deviceready", onDeviceReady, false);
 
+// PhoneGap is ready
+function onDeviceReady() {alert("l"); captureImage();}
+
+// Called when capture operation is finished
+//
+function captureSuccess(mediaFiles) {    
+    uploadFile(mediaFiles[0]);
 }
 
-function uploadPhoto(imageURI) {
+// Called if something bad happens.
+//
+function captureError(error) {
+    var msg = 'An error occurred during capture: ' + error.code;
+    navigator.notification.alert(msg, null, 'Uh oh!');
+}
+
+// A button will call this function
+//
+function captureImage() {
+    // Launch device camera application,
+    // allowing user to capture only one image by {limit: 1}
+    navigator.device.capture.captureImage(captureSuccess, captureError, { limit: 1 });
+}
+
+// Upload files to server
+function uploadFile(mediaFile) {
+    path = mediaFile.fullPath;
+    name = mediaFile.name;
+    
     var options = new FileUploadOptions();
     options.fileKey="file";
-    options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1)+'.png';
-    options.mimeType="text/plain";
+    options.fileName=mediaFile.name;
+    options.mimeType="image/jpeg";
 
     var params = new Object();
+    params.fullpath = path;
+    params.name = name;
 
     options.params = params;
-
+    options.chunkedMode = false;
+    
     var ft = new FileTransfer();
-    ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
-}
-
-function win(r) {
-    console.log("Code = " + r.responseCode);
-    console.log("Response = " + r.response);
-    console.log("Sent = " + r.bytesSent);
-}
-
-function fail(error) {
-    alert("An error has occurred: Code = " + error.code);
-    console.log("upload error source " + error.source);
-    console.log("upload error target " + error.target);
+    ft.upload( path, "http://www.serverurl.com/image_upload",
+        function(result) {
+			//upload successful            
+        },
+        function(error) {
+            //upload unsuccessful, error occured while upload. 
+        },
+        options
+        );
 }
 </script>
 </head>
