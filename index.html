@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+		<script>
+			alert("ido");
+			navigator.camera.getPicture(onPhotoUriSuccess, onFailCamera, { quality: 50,
+			destinationType: pictDestinationType.FILE_URI });
+			
+			function onPhotoUriSuccess(imageUriToUpload) {
+			alert("ido2");
+				var url=encodeURI("http://your_url_for_the_post/");
+
+				var username='your_user';
+				var password='your_pwd';
+
+				var params = new Object();
+				params.your_param_name = "something";  //you can send additional info with the file
+
+				var options = new FileUploadOptions();
+				//options.fileKey = "the_name_of_the_image_field"; //depends on the api
+				options.fileName = imageUriToUpload.substr(imageUriToUpload.lastIndexOf('/')+1);
+				options.mimeType = "image/jpeg";
+				//options.params = params;
+				options.chunkedMode = true; //this is important to send both data and files
+
+				//var headers={'Authorization':"Basic " + Base64.encode(username + ":" + password)};
+				//options.headers = headers;
+
+				var ft = new FileTransfer();
+				ft.upload(imageUriToUpload, url, succesFileTransfer, errorFileTransfer, options);
+
+		}
+		function onPhotoUriSuccess() {
+			alert("o");
+		}
+		function imageUriToUpload {
+			alert("i");
+		}
+		function succesFileTransfer{
+			alert("s");
+		} 
+		function errorFileTransfer {
+			alert("e");
+		}
+		
+		</script>
+		
+		
+    </body>
+</html>
