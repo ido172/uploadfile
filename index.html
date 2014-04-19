@@ -6,12 +6,12 @@
     <body>
 		<script>
 			alert("ido");
-			navigator.camera.getPicture(onPhotoUriSuccess, onFailCamera, { quality: 50,
-			destinationType: pictDestinationType.FILE_URI });
+			navigator.camera.getPicture(onPhotoUriSuccess, onFailCamera, {
+			destinationType: pictDestinationType.FILE_URI, sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
 			
 			function onPhotoUriSuccess(imageUriToUpload) {
 			alert("ido2");
-				var url=encodeURI("http://your_url_for_the_post/");
+				var url=encodeURI("http://avivshay.milab.idc.ac.il/?cmd=UITS");
 
 				var username='your_user';
 				var password='your_pwd';
@@ -44,6 +44,9 @@
 		} 
 		function errorFileTransfer() {
 			alert("e");
+		}
+		function onFailCamera() {
+		alert("f");
 		}
 		
 		</script>
