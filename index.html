@@ -8,7 +8,7 @@
     
 <script type="text/javascript">  
 function uploadFromGallery() {
-
+alert("D");
     // Retrieve image file location from specified source
     navigator.camera.getPicture(uploadPhoto,
                                 function(message) { alert('get picture failed'); },
@@ -20,6 +20,7 @@ function uploadFromGallery() {
 }
 
 function uploadPhoto(imageURI) {
+alert("U");
     var options = new FileUploadOptions();
     options.fileKey="file";
     options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1)+'.png';
