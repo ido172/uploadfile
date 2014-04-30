@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
 		 xmlns:android   = "http://schemas.android.com/apk/res/android"
-        id        = "com.milab.idc.sheets"
+        id        = "com.milab.idc.bla"
 		
         version   = "0.0.1">
 
@@ -23,7 +23,7 @@
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
-    <preference name="permissions"                value="none"/>
+  
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="3.3.0" />          <!-- all: current version of PhoneGap -->
@@ -52,26 +52,13 @@
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
 
-    <!-- Third party plugins -->
-    <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
-	<gap:plugin name="com.phonegap.plugins.facebookconnect">
-		<param name="APP_ID" value="691029124265305" />
-		<param name="APP_NAME" value="Sheets" />
-	</gap:plugin>
+
 
     <gap:plugin name="com.phonegap.plugins.pushplugin" />
 
 
 
-    <!--
-        Define access to external domains.
 
-        <access />            - a blank access tag denies access to all external resources.
-        <access origin="*" /> - a wildcard access tag allows access to all external resource.
-
-        Otherwise, you can specify specific domains:
-    -->
-    <access origin="*"/> 
 	
 	<!--open the login page first-->
 	<content src="index.html" />
