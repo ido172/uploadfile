@@ -23,10 +23,10 @@
 			myVideo.play();
 		},false);
 		setTimeout(function() {
-			//alert("play1");	
-				//myVideo.play();
+			alert("play1");	
+				myVideo.play();
 				myVideo.click();
-				alert("play1");	
+				
 			}
 		,5000);
 	}
@@ -45,8 +45,8 @@
   <body onload="init();">
 
     <!-- Actions -->
-    <video width="300" height="200" id="video1" autoplay="1">
-		<source src="http://stavoren.milab.idc.ac.il/public_html/movies/father.mp4" type="video/mp4" />
+    <video width="300" height="200" id="video1" autobuffer autoplay="1">
+		<source src="http://stavoren.milab.idc.ac.il/public_html/movies/father.mp4" />
 	</video>
     
   </body>
