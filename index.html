@@ -22,15 +22,15 @@
 		alert(myVideo);
 		myVideo.play(); 
 	}
-	alert("1");
-        document.addEventListener("deviceready", ready, false);
-        window.setTimeout(function() {
-            if (!deviceReady) {
-                alert("Error: PhoneGap did not initialize.  Demo will not run correctly.");
-            }
-        },2000);
-    }
-
+	
+	function init() {
+	document.addEventListener("deviceready", ready, false);
+	window.setTimeout(function() {
+		if (!deviceReady) {
+			alert("Error: PhoneGap did not initialize.  Demo will not run correctly.");
+		}
+	},2000);
+}
     </script>
 
   </head>
