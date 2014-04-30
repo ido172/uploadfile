@@ -41,6 +41,7 @@
     function selectPicture() {
 	alert("12");
         navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
+		alert("333");
     };
     
 	function onSuccess(uri) {
