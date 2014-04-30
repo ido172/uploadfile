@@ -20,7 +20,11 @@
 		deviceReady = true;	
 		var myVideo=document.getElementById("video1"); 
 		alert(myVideo);
-		myVideo.play(); 
+		setTimeout(function() {
+			alert("play");	
+				myVideo.play(); 
+			}
+		,5000);
 	}
 	
 	function init() {
@@ -37,7 +41,7 @@
   <body onload="init();">
 
     <!-- Actions -->
-    <video width="300" height="200" id="video1" controls autoplay>
+    <video width="300" height="200" id="video1" controls>
 		<source src="http://stavoren.milab.idc.ac.il/public_html/movies/father.mp4" type="video/mp4" />
 	</video>
     
