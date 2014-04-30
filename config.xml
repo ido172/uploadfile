@@ -53,7 +53,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
 	
 	
-	<gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>
+	
 
     <gap:plugin name="com.phonegap.plugins.pushplugin" />
 
