@@ -14,15 +14,16 @@
     <script type="text/javascript" charset="utf-8">
       
     var deviceReady = false;
-	
+	var myVideo;
 	function ready() {
 		alert("ready");
 		deviceReady = true;	
-		var myVideo=document.getElementById("video1"); 
+		myVideo=document.getElementById("video1"); 
 		alert(myVideo);
 		setTimeout(function() {
 			alert("play");	
-				myVideo.play(); 
+				myVideo.play();
+				myVideo.click();
 			}
 		,5000);
 	}
@@ -41,7 +42,7 @@
   <body onload="init();">
 
     <!-- Actions -->
-    <video width="300" height="200" id="video1" controls>
+    <video width="300" height="200" id="video1" autoplay="1" loop="1" controls>
 		<source src="http://stavoren.milab.idc.ac.il/public_html/movies/father.mp4" type="video/mp4" />
 	</video>
     
