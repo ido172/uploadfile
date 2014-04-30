@@ -40,23 +40,23 @@
      */
     function selectPicture() {
 	alert("12");
-        navigator.camera.getPicture(
-            function(uri) {
-			alert("1e2");
-				alert(uri);
-                var img = document.getElementById('camera_image');
-                img.style.visibility = "visible";
-                img.style.display = "block";
-                img.src = uri;
-                document.getElementById('camera_status').innerHTML = "Success";
-            },
-            function(e) {
-				alert("Error getting picture: " + e);
-                document.getElementById('camera_status').innerHTML = "Error getting picture.";
-            },
-            { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
     };
     
+	function onSuccess(uri) {
+		alert("1e2");
+			alert(uri);
+			var img = document.getElementById('camera_image');
+			img.style.visibility = "visible";
+			img.style.display = "block";
+			img.src = uri;
+			document.getElementById('camera_status').innerHTML = "Success";
+	};
+	
+	function onFail(e) {
+		alert("Error getting picture: " + e);
+        document.getElementById('camera_status').innerHTML = "Error getting picture.";
+    };
     /**
      * Upload current picture
      */
