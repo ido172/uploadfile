@@ -27,10 +27,6 @@
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="3.3.0" />          <!-- all: current version of PhoneGap -->
-    <feature name="http://api.phonegap.com/1.0/camera"/>
-	<feature name="http://api.phonegap.com/1.0/file"/>
-	<feature name="http://api.phonegap.com/1.0/media"/>
-    <feature name="http://api.phonegap.com/1.0/network"/>
     <!-- Plugins -->
 
     <!-- Core plugins -->
