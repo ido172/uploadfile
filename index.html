@@ -50,6 +50,7 @@
                 document.getElementById('camera_status').innerHTML = "Success";
             },
             function(e) {
+			alert("Error getting picture: " + e);
                 console.log("Error getting picture: " + e);
                 document.getElementById('camera_status').innerHTML = "Error getting picture.";
             },
