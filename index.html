@@ -42,7 +42,8 @@
 	alert("12");
         navigator.camera.getPicture(
             function(uri) {
-			alert("DDD"+uri);
+			alert("1e2");
+				alert(uri);
                 var img = document.getElementById('camera_image');
                 img.style.visibility = "visible";
                 img.style.display = "block";
@@ -50,8 +51,7 @@
                 document.getElementById('camera_status').innerHTML = "Success";
             },
             function(e) {
-			alert("Error getting picture: " + e);
-                console.log("Error getting picture: " + e);
+				alert("Error getting picture: " + e);
                 document.getElementById('camera_status').innerHTML = "Error getting picture.";
             },
             { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
