@@ -19,9 +19,11 @@
 		alert("ready");
 		deviceReady = true;	
 		myVideo=document.getElementById("video1"); 
-		alert(myVideo);
+		myVideo.addEventListener('click',function(){
+			myVideo.play();
+		},false);
 		setTimeout(function() {
-			alert("play");	
+			alert("play1");	
 				myVideo.play();
 				myVideo.click();
 			}
