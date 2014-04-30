@@ -42,6 +42,7 @@
 	alert("!");
         navigator.camera.getPicture(
             function(uri) {
+			alert("DDD"+uri);
                 var img = document.getElementById('camera_image');
                 img.style.visibility = "visible";
                 img.style.display = "block";
