@@ -21,8 +21,8 @@
      * Function called when page has finished loading.
      */
     function init() {
-	alert("1");
-        document.addEventListener("deviceready", function() {alert("2"); deviceReady = true;}, false);
+	
+        document.addEventListener("deviceready", function() { deviceReady = true;}, false);
         window.setTimeout(function() {
             if (!deviceReady) {
                 alert("Error: PhoneGap did not initialize.  Demo will not run correctly.");
@@ -37,7 +37,7 @@
 
     <!-- Actions -->
     <video width="300" height="200" controls autoplay>
-		<source src="http://stavoren.milab.idc.ac.il/public_html/movies/father.mp4" type="video/mp4" />
+		<source src="father.mp4" type="video/mp4" />
 	</video>
     
   </body>
