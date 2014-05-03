@@ -78,6 +78,7 @@
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
             options.mimeType="text/plain";
+			options.chunkedMode = false;
 
 			var params = new Object();
 			options.params = params;
@@ -85,6 +86,7 @@
 			alert("send to server: " + server);		
             // Transfer picture to server
             var ft = new FileTransfer();
+			alert("s");
 			alert(ft);
             ft.upload(imageURI, encodeURI(server), function(r) {
 				alert("GOOD upload picture" + r);
