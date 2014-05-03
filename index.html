@@ -38,7 +38,7 @@
      * Select picture from library
      */
     function selectPicture() {
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI , sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI , sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM});
     };
     
 	function onSuccess(uri) {
