@@ -45,10 +45,10 @@
 			alert(uri);
 			
 			 window.resolveLocalFileSystemURI(uri, function(fileEntry) {
-					alert("1"+fileEntry);
+					alert("1"+uri);
 					alert("SSS"+fileEntry.fullPath);
 					//alert("2"+fileObj.fullPath);
-					fileName = fileEntry.fullPath;
+					//fileName = fileEntry.fullPath;
 					//alert("fileName: " + fileName);
             }); 
 			fileName = uri;
