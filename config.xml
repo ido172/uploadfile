@@ -30,23 +30,12 @@
     <!-- Plugins -->
 
     <!-- Core plugins -->
+	<gap:plugin name="org.apache.cordova.device" version="0.2.8" />
 	<gap:plugin name="org.apache.cordova.file-transfer" version="0.4.2" />
-	<gap:plugin name="org.apache.cordova.file"  />
-    <gap:plugin name="org.apache.cordova.camera" />
+	<gap:plugin name="org.apache.cordova.file" version="1.0.1" />
+    <gap:plugin name="org.apache.cordova.camera" version="0.2.9" />
     <gap:plugin name="org.apache.cordova.console" />
-    <gap:plugin name="org.apache.cordova.device" />
-   
-   
 
-	
-	
-
-    <gap:plugin name="com.phonegap.plugins.pushplugin" />
-
-
-
-
-	
 	<!--open the login page first-->
 	<content src="index.html" />
 	
