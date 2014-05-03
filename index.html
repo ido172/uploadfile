@@ -46,12 +46,9 @@
 			
 			 window.resolveLocalFileSystemURI(uri, function(fileEntry) {
 					alert("1"+fileEntry);
-					fileEntry.file(function(fileObj) {
-						for (prop in fileObj) {
-							alert(prop + ":::"+ fileObj.prop);
-						}
+					alert("SSS"+fileEntry.fullPath);
 					//alert("2"+fileObj.fullPath);
-					//fileName = fileObj.fullPath;
+					fileName = fileEntry.fullPath;
 					//alert("fileName: " + fileName);
 				});
             }); 
