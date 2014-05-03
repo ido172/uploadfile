@@ -18,7 +18,6 @@
      * Take picture with camera
      */
     function takePicture() {
-	alert("!");
         navigator.camera.getPicture(
             function(uri) {
                 var img = document.getElementById('camera_image');
@@ -38,14 +37,11 @@
      * Select picture from library
      */
     function selectPicture() {
-	alert("12");
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: navigator.camera.DestinationType.DATA_URL , sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
-		alert("333");
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI , sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
 		 return false;
     };
     
 	function onSuccess(uri) {
-		alert("1e2");
 			alert(uri);
 			var img = document.getElementById('camera_image');
 			img.style.visibility = "visible";
@@ -128,7 +124,6 @@
      * Function called when page has finished loading.
      */
     function init() {
-	alert("1");
         document.addEventListener("deviceready", function() {alert("2"); deviceReady = true;}, false);
         window.setTimeout(function() {
             if (!deviceReady) {
