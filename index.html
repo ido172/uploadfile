@@ -47,7 +47,7 @@
 			 window.resolveLocalFileSystemURI(uri, function(fileEntry) {
 					alert("1"+fileEntry);
 					fileEntry.file(function(fileObj) {
-						for (prop in fullPath) {
+						for (prop in fileObj) {
 							alert(prop + ":::"+ fileObj.prop);
 						}
 					//alert("2"+fileObj.fullPath);
