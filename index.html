@@ -77,7 +77,7 @@
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-            options.mimeType="text/plain";
+            options.mimeType="image/jpeg";
 			options.chunkedMode = true;
 
 			var params = new Object();
@@ -88,10 +88,7 @@
             var ft = new FileTransfer();
 			alert("send: " + imageURI);
             ft.upload(imageURI, encodeURI(server), function(r) {
-				alert("GOOD upload picture" + r);
-				for (prop in r) {
-					alert(prop+":::"+r[prop]);
-				}
+				alert("GOOD upload picture \n response: " + r.response);
                 document.getElementById('camera_status').innerHTML = "Upload successful: "+r.bytesSent+" bytes uploaded.";            	
             }, function(error) {
 				alert("Error upload picture: " + error);
