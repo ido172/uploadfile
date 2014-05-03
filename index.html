@@ -58,7 +58,7 @@
      * Upload current picture
      */
     function uploadPicture() {
-    	
+    	alert("TEST");
     	// Get URI of picture to upload
         var img = document.getElementById('camera_image');
         var imageURI = img.src;
@@ -69,6 +69,7 @@
         
         // Verify server has been entered
         server = document.getElementById('serverUrl').value;
+		alert("server: " + server);
         if (server) {
         	
             // Specify transfer options
