@@ -42,17 +42,6 @@
     };
     
 	function onSuccess(uri) {
-			alert(uri);
-			
-			 window.resolveLocalFileSystemURI(uri, function(fileEntry) {
-					alert("1"+uri);
-					for (prop in fileEntry) {
-					alert(prop+":::"+fileEntry[prop]);
-					}
-					//alert("2"+fileObj.fullPath);
-					//fileName = fileEntry.fullPath;
-					//alert("fileName: " + fileName);
-            }); 
 			fileName = uri;
 			var img = document.getElementById('camera_image');
 			img.style.visibility = "visible";
@@ -100,6 +89,9 @@
 			alert("send: " + imageURI);
             ft.upload(imageURI, encodeURI(server), function(r) {
 				alert("GOOD upload picture" + r);
+				for (prop in r) {
+					alert(prop+":::"+r[prop]);
+				}
                 document.getElementById('camera_status').innerHTML = "Upload successful: "+r.bytesSent+" bytes uploaded.";            	
             }, function(error) {
 				alert("Error upload picture: " + error);
