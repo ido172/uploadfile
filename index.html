@@ -46,6 +46,12 @@
 		alert(fileName);
 		
 		
+		var img = document.getElementById('camera_image');
+		img.style.visibility = "visible";
+		img.style.display = "block";
+		img.src = fileName;
+		document.getElementById('camera_status').innerHTML = "Success";
+		
 		if(fileName.indexOf('content://') != -1 && fileName.indexOf("%3A") != -1) {
 			var photo_split=fileName.split("%3A");
 			photo_split=imageURI.split("%3A");
@@ -60,11 +66,7 @@
 			}
         }
 		
-		var img = document.getElementById('camera_image');
-		img.style.visibility = "visible";
-		img.style.display = "block";
-		img.src = fileName;
-		document.getElementById('camera_status').innerHTML = "Success";
+		
 
 							
 		alert(fileName);
