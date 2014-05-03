@@ -44,17 +44,18 @@
     
 	function onSuccess(uri) {
 			alert(uri);
+			
 			 window.resolveLocalFileSystemURI(uri, function(fileEntry) {
-					fileEntry.file(function(fileObj) {
-					fileName = fileObj.fullPath;
-					alert("fileName: " + fileName);
+					//fileEntry.file(function(fileObj) {
+					//fileName = fileObj.fullPath;
+					//alert("fileName: " + fileName);
 				});
             }); 
-			alert("fileName1: " + fileName);
+			fileName = uri;
 			var img = document.getElementById('camera_image');
 			img.style.visibility = "visible";
 			img.style.display = "block";
-			img.src = uri;
+			img.src = fileName;
 			document.getElementById('camera_status').innerHTML = "Success";
 	};
 	
@@ -75,6 +76,7 @@
             return;
         }
         
+		imageURI = fileName;
         // Verify server has been entered
         server = document.getElementById('serverUrl').value;
 		
